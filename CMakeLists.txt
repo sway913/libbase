@@ -59,9 +59,10 @@ message(STATUS "Build type: ${CMAKE_BUILD_TYPE}")
 find_package(Threads REQUIRED)
 
 # GLOG
-include(AddGlogSubmodule)
-add_glog_submodule(third_party/glog)
-
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+  include(AddGlogSubmodule)
+  add_glog_submodule(third_party/glog)
+endif()
 
 #
 # Targets
